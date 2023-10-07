@@ -10,6 +10,7 @@ function clearSuggestions() {
 
 // Helper function to handle API response
 function handleApiResponse(data) {
+	console.log('Received API response:', data);
   // Clear any previously displayed suggestions
   clearSuggestions();
 
@@ -32,6 +33,7 @@ function getSuggestions(query) {
 
 // Event listener for typing into the typeahead input field
 typeaheadInput.addEventListener('input', () => {
+	  console.log('Input event triggered');
   // Clear any previous timeout
   clearTimeout(timeoutId);
 
@@ -46,8 +48,8 @@ typeaheadInput.addEventListener('input', () => {
   }, 500);
 });
 
-// Event listener for clicking on a suggestion
 suggestionsList.addEventListener('click', (event) => {
+  console.log('Clicked on a suggestion');
   const clickedListItem = event.target;
   typeaheadInput.value = clickedListItem.textContent;
   clearSuggestions();
